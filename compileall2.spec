@@ -4,9 +4,9 @@
 #
 Name     : compileall2
 Version  : 20.03.03
-Release  : 1
-URL      : file:///insilications/build/clearlinux/packages/compileall2/compileall2-20.03.03.tar.gz
-Source0  : file:///insilications/build/clearlinux/packages/compileall2/compileall2-20.03.03.tar.gz
+Release  : 2
+URL      : file:///insilications/build/clearlinux/packages/compileall2/compileall2-.tar.gz
+Source0  : file:///insilications/build/clearlinux/packages/compileall2/compileall2-.tar.gz
 Summary  : Enhanced Python `compileall` module
 Group    : Development/Tools
 License  : MIT
@@ -59,16 +59,17 @@ cd %{_builddir}/compileall2
 unset http_proxy
 unset https_proxy
 unset no_proxy
+export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1599654534
+export SOURCE_DATE_EPOCH=1610387056
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=16 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=16 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=16 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=16 "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
